@@ -1,6 +1,7 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import java.util.NoSuchElementException;
@@ -11,9 +12,9 @@ public class Main {
         WebDriverManager.firefoxdriver().setup();
 
         FirefoxOptions options = new FirefoxOptions();
-        options.addArguments("user-data-dir={}\\driver_data".format(System.getProperty("user.dir")));
+        options.addArguments("user-data-dir="+System.getProperty("user.dir")+ "\\dd");
 
-        WebDriver driver = new FirefoxDriver(options=options);
+        WebDriver driver = new FirefoxDriver(options);
 
         driver.get("https://www.linkedin.com");
         while(!new Scanner(System.in).next().equals("1")){
